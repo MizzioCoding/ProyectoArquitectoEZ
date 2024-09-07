@@ -29,6 +29,8 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
+import '../../app/style.css'
+import { FaWhatsapp } from "react-icons/fa";
 
 export function Main() {
   const [activeFilter, setActiveFilter] = useState("all")
@@ -94,7 +96,7 @@ export function Main() {
       <header className="bg-primary py-12 text-primary-foreground">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center">
-            <h1 className="text-4xl font-bold">John Doe, Architect</h1>
+            <h1 className="text-4xl font-bold">Ezequiel Schreiber, Arquitecto</h1>
             <p className="max-w-[600px] text-lg">
               John Doe is a renowned architect with over 20 years of experience in designing innovative and sustainable
               buildings. His portfolio includes a wide range of projects, from residential homes to commercial and
@@ -104,6 +106,9 @@ export function Main() {
         </div>
       </header>
       <main className="flex-1">
+      <a href="https://wa.link/rn8264" className="float" target="_blank" id="wppIcon" >
+      <FaWhatsapp size={35} color="#FFF" />
+    </a>
         <section className="py-12 md:py-24">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mb-8 flex justify-center">
@@ -179,7 +184,7 @@ export function Main() {
       </main>
       <footer className="bg-muted py-6 text-muted-foreground">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <p>&copy; 2024 John Doe, Architect. All rights reserved.</p>
+          <p>&copy; 2024 Mizzio Coding. All rights reserved.</p>
         </div>
       </footer>
     </div>)
