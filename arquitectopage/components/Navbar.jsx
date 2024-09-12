@@ -8,7 +8,6 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
 
-
   const handleScroll = () => {
     if (window.scrollY > 50) {
       setScrolled(true);
@@ -32,7 +31,6 @@ const Navigation = () => {
     setIsProjectsOpen(!isProjectsOpen);
   };
 
-
   return (
     <div className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <img
@@ -47,18 +45,19 @@ const Navigation = () => {
           <span className="bar"></span>
         </button>
         <div className={`linksAlign ${isOpen ? "open" : ""}`}>
-        <div className="link" onClick={toggleProjects}>
+          <div className="link" onClick={toggleProjects}>
             Proyectos <SlArrowRight className={`arrow ${isProjectsOpen ? "open" : ""}`} />
             {isProjectsOpen && (
               <div className="sub-menu">
-                <Link className="sub-link" to="/project1" onClick={() => setIsOpen(false)}>Proyecto 1</Link>
-                <Link className="sub-link" to="/project2" onClick={() => setIsOpen(false)}>Proyecto 2</Link>
-                <Link className="sub-link" to="/project3" onClick={() => setIsOpen(false)}>Proyecto 3</Link>
+                <Link className="sub-link" to="/concursos" onClick={() => setIsOpen(false)}>Concursos</Link>
+                <Link className="sub-link" to="/viviendas" onClick={() => setIsOpen(false)}>Viviendas e interiorismo</Link>
+                <Link className="sub-link" to="/comercial" onClick={() => setIsOpen(false)}>Comercial</Link>
+                <Link className="sub-link" to="/reformas" onClick={() => setIsOpen(false)}>Reformas</Link>
               </div>
             )}
           </div>
-          <Link className="link" to="/services" onClick={() => setIsOpen(false)}>Estudio</Link>
-          <Link className="link" to="/contact" onClick={() => setIsOpen(false)}>Contacto</Link>
+          <Link className="link" to="/estudio" onClick={() => setIsOpen(false)}>Estudio</Link>
+          <Link className="link" to="/contacto" onClick={() => setIsOpen(false)}>Contacto</Link>
         </div>
       </div>
     </div>

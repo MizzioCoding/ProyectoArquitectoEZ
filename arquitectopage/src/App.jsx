@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import './App.css'
-import Navigation from '../components/Navbar.jsx'
-import Logo from './assets/LOGO Schreiber PNG.png'
-import Gallery from '../components/Gallery.jsx'
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
+import Navigation from '../components/Navbar';
+import Projects from '../components/Projects';
+import Gallery from '../components/Gallery';
+import Logo from '../src/assets/LOGO Schreiber PNG.png';
 
 function App() {
-  
   const titulo = "Project";
   const imagenes = [
     'https://via.placeholder.com/300',
@@ -23,10 +23,14 @@ function App() {
       </div>
       <Navigation />
       <div>
-        <Gallery />
+        <Routes>
+          <Route path="/" element={<Gallery />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/concursos" element={<Projects titulo={titulo} imagenes={imagenes} />} />
+        </Routes>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
