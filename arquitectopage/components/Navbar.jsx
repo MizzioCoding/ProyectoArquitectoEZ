@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../src/index.css";
-import logo from "../src/assets/LOGO Schreiber PNG.jpg";
+import logo from "../src/assets/LOGO Schreiber PNG.png";
+import { SlArrowRight } from "react-icons/sl";
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isProjectsOpen, setIsProjectsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -26,6 +24,15 @@ const Navigation = () => {
     };
   }, []);
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const toggleProjects = () => {
+    setIsProjectsOpen(!isProjectsOpen);
+  };
+
+
   return (
     <div className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <img
@@ -34,11 +41,22 @@ const Navigation = () => {
         className="logo"
       />
       <div className="navbar-center">
-        <button className="menu-toggle" onClick={toggleMenu}>
-          &#9776;
+        <button className={`menu-toggle ${isOpen ? "open" : ""}`} id="menu-toggle" onClick={toggleMenu}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
         </button>
         <div className={`linksAlign ${isOpen ? "open" : ""}`}>
-          <Link className="link" to="/about" onClick={() => setIsOpen(false)}>Proyectos</Link>
+        <div className="link" onClick={toggleProjects}>
+            Proyectos <SlArrowRight className={`arrow ${isProjectsOpen ? "open" : ""}`} />
+            {isProjectsOpen && (
+              <div className="sub-menu">
+                <Link className="sub-link" to="/project1" onClick={() => setIsOpen(false)}>Proyecto 1</Link>
+                <Link className="sub-link" to="/project2" onClick={() => setIsOpen(false)}>Proyecto 2</Link>
+                <Link className="sub-link" to="/project3" onClick={() => setIsOpen(false)}>Proyecto 3</Link>
+              </div>
+            )}
+          </div>
           <Link className="link" to="/services" onClick={() => setIsOpen(false)}>Estudio</Link>
           <Link className="link" to="/contact" onClick={() => setIsOpen(false)}>Contacto</Link>
         </div>

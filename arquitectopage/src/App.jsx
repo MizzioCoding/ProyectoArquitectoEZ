@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import './App.css'
 import Navigation from '../components/Navbar.jsx'
-import Logo from './assets/LOGO Schreiber PNG.jpg'
+import Logo from './assets/LOGO Schreiber PNG.png'
 import Gallery from '../components/Gallery.jsx'
 
 function App() {
-
+  
   return (
     <div className="App">
       <div className="App-content">

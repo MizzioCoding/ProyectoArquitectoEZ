@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../src/index.css";
-import logo from "../src/assets/LOGO Schreiber PNG.jpg";
-
 const Gallery = () => {
     return (
         <div className="gallery">
