@@ -6,6 +6,14 @@ import Gallery from '../components/Gallery.jsx'
 
 function App() {
   
+  const titulo = "Project";
+  const imagenes = [
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+  ];
+
   return (
     <div className="App">
       <div className="App-content">
