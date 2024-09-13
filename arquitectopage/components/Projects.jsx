@@ -1,4 +1,5 @@
 import React from 'react';
+import Carrousel from './Carrousel';
 
 const Projects = ({ titulo, imagenes }) => {
   return (
@@ -9,6 +10,7 @@ const Projects = ({ titulo, imagenes }) => {
           <img key={index} src={imagen} alt={`Imagen ${index + 1}`} style={styles.imagen} />
         ))}
       </div>
+        <Carrousel imagenes={imagenes} />
     </div>
   );
 };

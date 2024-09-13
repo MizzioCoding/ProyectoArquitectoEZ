@@ -9,7 +9,7 @@ const Navigation = () => {
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
 
   const handleScroll = () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 200) {
       setScrolled(true);
     } else {
       setScrolled(false);
@@ -46,7 +46,7 @@ const Navigation = () => {
         </button>
         <div className={`linksAlign ${isOpen ? "open" : ""}`}>
           <div className="link" onClick={toggleProjects}>
-            Proyectos <SlArrowRight className={`arrow ${isProjectsOpen ? "open" : ""}`} />
+            <span>Proyectos</span> <SlArrowRight className={`arrow ${isProjectsOpen ? "open" : ""}`} />
             {isProjectsOpen && (
               <div className="sub-menu">
                 <Link className="sub-link" to="/concursos" onClick={() => setIsOpen(false)}>Concursos</Link>
