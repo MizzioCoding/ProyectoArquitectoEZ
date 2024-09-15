@@ -15,7 +15,7 @@ const Footer = () => {
       </div>
       <p>También puedes contactarnos por <a href="mailto:loremimpsum@gmail.com">loremimpsum@gmail.com</a></p>
       <div className="footer-copy">
-        <small>&copy; 2021 Arquitecto Page</small>
+        <small>&copy; 2024 Mizzio Coding all rights reserved</small>
       </div>
     </footer>
   );
