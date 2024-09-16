@@ -45,8 +45,10 @@ const Navigation = () => {
           <span className="bar"></span>
         </button>
         <div className={`linksAlign ${isOpen ? "open" : ""}`}>
-          <div className="link" onClick={toggleProjects}>
-            <span>Proyectos</span> <SlArrowRight className={`arrow ${isProjectsOpen ? "open" : ""}`} />
+          <div  onMouseEnter={toggleProjects} onMouseLeave={toggleProjects}>
+            <Link className="link" to="/proyectos" onClick={() => setIsOpen(false)}>
+              <span>Proyectos</span> <SlArrowRight className={`arrow ${isProjectsOpen ? "open" : ""}`} />
+            </Link>
             {isProjectsOpen && (
               <div className="sub-menu">
                 <Link className="sub-link" to="/concursos" onClick={() => setIsOpen(false)}>Concursos</Link>

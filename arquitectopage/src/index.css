@@ -133,7 +133,6 @@
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%;
     z-index: 1000;
     gap: 10px;
     border-bottom-left-radius: 10px;

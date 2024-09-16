@@ -27,7 +27,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Gallery />} />
-          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/proyectos" element={<Gallery />} />
           <Route path="/concursos" element={<Projects titulo={titulo} imagenes={imagenes} />} />
           <Route path="/viviendas" element={<Projects titulo={titulo} imagenes={imagenes} />} />
           <Route path="/comercial" element={<Projects titulo={titulo} imagenes={imagenes} />} />
