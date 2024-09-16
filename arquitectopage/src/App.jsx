@@ -8,7 +8,6 @@ import Footer from '../components/Footer';
 import Logo from '../src/assets/LOGO Schreiber PNG.png';
 
 function App() {
-  const titulo = "Project";
   const imagenes = [
     'https://via.placeholder.com/300',
     'https://via.placeholder.com/300',
@@ -28,11 +27,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Gallery />} />
           <Route path="/proyectos" element={<Gallery />} />
-          <Route path="/concursos" element={<Projects titulo={titulo} imagenes={imagenes} />} />
-          <Route path="/viviendas" element={<Projects titulo={titulo} imagenes={imagenes} />} />
-          <Route path="/comercial" element={<Projects titulo={titulo} imagenes={imagenes} />} />
-          <Route path="/reformas" element={<Projects titulo={titulo} imagenes={imagenes} />} />
-          <Route path="/estudio" element={<Projects titulo={titulo} imagenes={imagenes} />} />
+          <Route path="/concursos" element={<Projects titulo={"Concursos"} />} />
+          <Route path="/viviendas" element={<Projects titulo={"Viviendas"}  />} />
+          <Route path="/comercial" element={<Projects titulo={"Comercial"}  />} />
+          <Route path="/reformas" element={<Projects titulo={"Reformas"} />} />
+          <Route path="/estudio" element={<Projects titulo={"Estudio"}/>} />
           <Route path="/contacto" element={<Contacto />} />
         </Routes>
       </div>

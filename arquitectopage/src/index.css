@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'CustomFont';
-    src: url('./assets/fonts/CentraNo1-Bold.otf') format('opentype');
+    src: url('./assets/fonts/CentraNo1-Light.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -11,9 +11,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'CustomFont', sans-serif;
     transition: all 0.3s;
+    font-family: 'CustomFont', sans-serif;
 }
+
+h1,
+h2,
+h3,
+p,
+button,
+a,
+span,
+div {
+    font-family: 'CustomFont', sans-serif;
+}
+
 
 
 .navbar {
@@ -158,6 +170,7 @@
     margin: 0 auto;
     width: 80%;
     padding: 20px;
+    min-height: 100vh;
 }
 
 .gallery-container {
@@ -178,6 +191,24 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.load-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #757575ad;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+.load-more:hover {
+    background-color: #7a7a7a;
+    color: white;
 }
 
 .overlay {
@@ -207,6 +238,13 @@
     text-align: center;
 }
 
+.text_2 {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
 .navbar.scrolled .logo {
     animation: showLogo 0.5s forwards;
 }
@@ -229,19 +267,18 @@
     margin: auto;
     overflow: hidden;
     border-radius: 14px;
-
 }
 
 .carousel-inner {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    height: 400px; 
+    height: 400px;
 }
 
 .carousel-item {
     min-width: 100%;
     box-sizing: border-box;
-    height: 100%; 
+    height: 100%;
 }
 
 .carousel-item img {
@@ -249,7 +286,7 @@
     height: 100%;
     display: block;
     border-radius: 14px;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .carousel-control-prev,
@@ -302,7 +339,7 @@
 /* Estilos para las miniaturas */
 .carousel-thumbnails {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 10px;
 }
 
@@ -330,41 +367,41 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 100px;
-  }
-  
-  .contact-form h2 {
+}
+
+.contact-form h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
     font-family: 'CustomFont', sans-serif;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 15px;
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
     color: #333;
-  }
-  
-  .form-group input,
-  .form-group textarea {
+}
+
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-  }
-  
-  .form-group textarea {
+}
+
+.form-group textarea {
     resize: vertical;
     height: 150px;
-  }
-  
-  button[type="submit"] {
+}
+
+button[type="submit"] {
     width: 100%;
     padding: 10px;
     background-color: #007bff;
@@ -373,13 +410,13 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
+}
 
-  .footer {
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.footer {
     background-color: #333;
     color: white;
     text-align: center;
@@ -388,42 +425,59 @@
     flex-direction: column;
     padding-top: 20px;
     gap: 10px;
-  }
-  
-  .footer-icons {
+}
+
+.footer-icons {
     margin-bottom: 10px;
-  }
-  
-  .footer-icons .icon {
+}
+
+.footer-icons .icon {
     color: white;
     font-size: 24px;
     margin: 0 10px;
     transition: color 0.3s ease;
-  }
-  
-  .footer-icons .icon:hover {
+}
+
+.footer-icons .icon:hover {
     color: #007bff;
-  }
-  
-  .footer p {
+}
+
+.footer p {
     margin: 0;
-  }
-  
-  .footer a {
+}
+
+.footer a {
     color: #007bff;
     text-decoration: none;
-  }
-  
-  .footer a:hover {
-    text-decoration: underline;
-  }
+}
 
-  .footer-copy {
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-copy {
     background-color: #444;
     color: white;
     text-align: center;
     padding: 10px 0;
-  }
+}
+
+.project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+}
+
+.project h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'CustomFont', sans-serif;
+}
 
 @media (max-width: 768px) {
     .menu-toggle {
