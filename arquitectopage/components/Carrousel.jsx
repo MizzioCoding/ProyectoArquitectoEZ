@@ -12,7 +12,6 @@ const Carrousel = ({ images = [] }) => {
     "https://via.placeholder.com/300",
   ];
 
-  console.log("Images to show in Carrousel:", imagesToShow); // Debugging line
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>

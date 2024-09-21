@@ -39,7 +39,7 @@ div {
     top: 0;
     z-index: 1000;
     margin-bottom: 50px;
-    height: 80px;
+    height: 65px;
 }
 
 
@@ -106,7 +106,7 @@ div {
 .link {
     color: rgb(34, 34, 34);
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     position: relative;
     display: flex;
     cursor: pointer;
@@ -179,6 +179,7 @@ div {
     grid-template-rows: 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+
 }
 
 .gallery-item {
@@ -191,6 +192,7 @@ div {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 14px;
 }
 
 .load-more {
@@ -225,6 +227,7 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 14px;
 }
 
 .gallery-item:hover .overlay {
