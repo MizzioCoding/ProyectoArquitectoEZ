@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Carrousel from "./Carrousel";
+import { useNavigate } from "react-router-dom";
 import "../src/index.css";
 
 const defaultImages = [
@@ -12,6 +13,7 @@ const defaultImages = [
 const Projects = ({ titulo }) => {
   const [subfolders, setSubfolders] = useState([]);
   const [imagePaths, setImagePaths] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getSubfolders = async () => {
@@ -49,21 +51,28 @@ const Projects = ({ titulo }) => {
 
     const fetchSubfoldersAndImages = async () => {
       const subfolders = await getSubfolders();
-      console.log("Subfolders:", subfolders);
       setSubfolders(subfolders);
 
       const paths = {};
       for (const subcarpeta of subfolders) {
         const images = await getImagePaths(subcarpeta);
-        console.log(`Images for ${subcarpeta}:`, images);
         paths[subcarpeta] = images.length > 0 ? images : defaultImages;
       }
-      console.log("Image paths:", paths);
       setImagePaths(paths);
     };
 
     fetchSubfoldersAndImages();
   }, [titulo]);
+
+  const sanitizeUrl = (text) => {
+    return text.toLowerCase().replace(/\s+/g, '-');
+  };
+
+  const handleImageClick = (text, src) => {
+    const sanitizedUrl = sanitizeUrl(text);
+    const basePath = src.split('/')[3]; // Obtiene la carpeta base (Concursos, Viviendas, etc.)
+    navigate(`/${basePath}/${sanitizedUrl}`, { state: { src } });
+  };
 
   return (
     <div className="projects">
@@ -71,6 +80,9 @@ const Projects = ({ titulo }) => {
         <div key={index} className="project">
           <h2>{subcarpeta}</h2>
           <Carrousel images={imagePaths[subcarpeta] || defaultImages} />
+          <button className="verMas" onClick={() => handleImageClick(subcarpeta, imagePaths[subcarpeta][0] || defaultImages[0])}>
+            Ver más
+          </button>
         </div>
       ))}
     </div>

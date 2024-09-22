@@ -3,54 +3,68 @@ import Carrousel from "./Carrousel"; // Ensure this component exists and works c
 import { useLocation, useParams } from "react-router-dom";
 
 const Reformas = () => {
-  const location = useLocation();
-  const { project } = useParams();
-  const { src } = location.state;
-  const [imagesByFolder, setImagesByFolder] = useState({});
+    const location = useLocation();
+    const { project } = useParams();
+    const { src } = location.state;
+    const [imagesByFolder, setImagesByFolder] = useState({});
+    const [portadaImage, setPortadaImage] = useState(null);
+    const [portadaDescription, setPortadaDescription] = useState("");
 
-  useEffect(() => {
-    const loadImages = async () => {
-      // Remove the last part of the path after the last '/'
-      const folderPath = src.substring(0, src.lastIndexOf('/')) + '/';
-      console.log("Folder Path que me llega:", folderPath); // Debugging line
+    useEffect(() => {
+        const loadImages = async () => {
+            // Remove the last part of the path after the last '/'
+            const folderPath = src.substring(0, src.lastIndexOf('/')) + '/';
 
-      // Construct the correct path for import.meta.glob
-      const context = import.meta.glob('../src/assets/Reformas/**/*.{png,jpe?g,webp}');
-      console.log("Context Keys:", Object.keys(context)); // Debugging line
+            // Construct the correct path for import.meta.glob
+            const context = import.meta.glob('../src/assets/Reformas/**/*.{png,jpe?g,webp,txt}');
 
-      const imagesByFolderTemp = {};
+            const imagesByFolderTemp = {};
 
-      await Promise.all(
-        Object.keys(context).map(async (key) => {
-          if (key.startsWith(folderPath)) {
-            const module = await context[key]();
-            const imagePath = module.default || key;
-            const folderName = key.split('/')[key.split('/').length - 2]; // Assuming folder name is at this position
-            if (!imagesByFolderTemp[folderName]) {
-              imagesByFolderTemp[folderName] = [];
-            }
-            imagesByFolderTemp[folderName].push(imagePath);
-          }
-        })
-      );
+            await Promise.all(
+                Object.keys(context).map(async (key) => {
+                    if (key.startsWith(folderPath)) {
+                        const module = await context[key]();
+                        const filePath = module.default || key;
+                        const fileName = key.split('/').pop();
+                        const folderName = key.split('/')[key.split('/').length - 2]; // Assuming folder name is at this position
+                        if (fileName == 'PORTADA.webp') {
+                            setPortadaImage(filePath);
+                        } else if (fileName.endsWith('.txt')) {
+                            const response = await fetch(filePath);
+                            const text = await response.text();
+                            setPortadaDescription(text);
+                        } else {
+                            if (!imagesByFolderTemp[folderName]) {
+                                imagesByFolderTemp[folderName] = [];
+                            }
+                            imagesByFolderTemp[folderName].push(filePath);
+                        }
+                    }
+                })
+            );
 
-      setImagesByFolder(imagesByFolderTemp);
-    };
+            setImagesByFolder(imagesByFolderTemp);
+        };
 
-    loadImages();
-  }, [src]);
+        loadImages();
+    }, [src]);
 
-  return (
-    <div className="Reformas">
-      <h2>{project}</h2>
-      {Object.keys(imagesByFolder).map((folderName) => (
-        <div key={folderName}>
-          <h3>{folderName}</h3>
-          <Carrousel images={imagesByFolder[folderName]} />
+    return (
+        <div className="reformas">
+            {portadaImage && (
+                <div className="portada">
+                    <img src={portadaImage} alt="Portada" />
+                    {portadaDescription && <p>{portadaDescription}</p>}
+                </div>
+            )}
+            {Object.keys(imagesByFolder).map((folderName) => (
+                <div key={folderName} className="concurso">
+                    <h3>{folderName}</h3>
+                    <Carrousel images={imagesByFolder[folderName]} />
+                </div>
+            ))}
         </div>
-      ))}
-    </div>
-  );
+    );
 };
 
 export default Reformas;

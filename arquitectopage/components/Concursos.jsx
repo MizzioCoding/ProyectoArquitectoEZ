@@ -58,7 +58,7 @@ const Concursos = () => {
                 </div>
             )}
             {Object.keys(imagesByFolder).map((folderName) => (
-                <div key={folderName}>
+                <div key={folderName} className="concurso">
                     <h3>{folderName}</h3>
                     <Carrousel images={imagesByFolder[folderName]} />
                 </div>
