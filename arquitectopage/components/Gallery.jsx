@@ -14,7 +14,7 @@ const Gallery = () => {
     { src: "../src/assets/Concursos/CONCURSO COSTA URBANA/0. PORTADA 1.webp", text: "CONCURSO paseo costero" },
     { src: "../src/assets/Concursos/CONCURSO HAWA/PORTADA.webp", text: "CONCURSO HAWA" },
     // { src: "../src/assets/Concursos/CONCURSO POLO Y PARQUE TECNOLOGICO/", text: "CONCURSO Parque y polo tecnológico" },
-    { src: "../src/assets/Concursos/CONCURSO Biblioteca Sarmiento/1.webp", text: "CONCURSO Biblioteca Sarmiento" },
+    { src: "../src/assets/Concursos/CONCURSO Biblioteca Sarmiento/PORTADA.webp", text: "CONCURSO Biblioteca Sarmiento" },
     { src: "../src/assets/Concursos/CONCURSO SUM INTA/ICONO.webp", text: "CONCURSO SUM INTA" },
     // { src: "../src/assets/Viviendas/SMATA/", text: "MARTHA SALOTTI Edificio Faena 1" },
     // { src: "../src/assets/Concursos/", text: "MARTHA SALOTTI Edificio Faena 2" },
@@ -37,9 +37,10 @@ const Gallery = () => {
     return text.toLowerCase().replace(/\s+/g, '-');
   };
 
-  const handleImageClick = (text) => {
+  const handleImageClick = (text, src) => {
     const sanitizedUrl = sanitizeUrl(text);
-    navigate(`/${sanitizedUrl}`);
+    const basePath = src.split('/')[3]; // Obtiene la carpeta base (Concursos, Viviendas, etc.)
+    navigate(`/${basePath}/${sanitizedUrl}`, { state: { src } });
   };
 
   const handleLoadMore = () => {
@@ -55,7 +56,7 @@ const Gallery = () => {
             src={image.src}
             alt={`Imagen ${index + 1}`}
             text={image.text}
-            onClick={() => handleImageClick(image.text)}
+            onClick={() => handleImageClick(image.text, image.src)}
           />
         ))}
       </div>

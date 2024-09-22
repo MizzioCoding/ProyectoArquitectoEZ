@@ -6,6 +6,10 @@ import Gallery from '../components/Gallery';
 import Contacto from '../components/Contacto';
 import Footer from '../components/Footer';
 import Logo from '../src/assets/LOGO Schreiber PNG.png';
+import Concursos from '../components/Concursos';
+import Viviendas from '../components/Viviendas';
+import Comercial from '../components/Comercial';
+import Reformas from '../components/Reformas';
 
 function App() {
   const imagenes = [
@@ -27,6 +31,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Gallery />} />
           <Route path="/proyectos" element={<Gallery />} />
+          <Route path="/concursos/:project" element={<Concursos />} />
+          <Route path="/viviendas/:project" element={<Viviendas />} />
+          <Route path="/comercial/:project" element={<Comercial />} />
+          <Route path="/reformas/:project" element={<Reformas />} />
           <Route path="/concursos" element={<Projects titulo={"Concursos"} />} />
           <Route path="/viviendas" element={<Projects titulo={"Viviendas"}  />} />
           <Route path="/comercial" element={<Projects titulo={"Comercial"}  />} />

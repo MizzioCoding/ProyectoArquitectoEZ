@@ -20,20 +20,25 @@
 
 
 
-.App-logo{
-    width: 30%;
+.App-logo {
+    width: 20%;
     margin: 30px;
 }
 
-.App-content{
+.App-content {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: 100%; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    height: 100%;
+    /* Asegura que el contenedor ocupe toda la altura de la pantalla */
 }
 
-.App-header{
-    text-align: center; /* Centra el texto dentro del header */
-    font-size: 2rem; /* Tamaño de fuente opcional */
-    color: #333; 
+.App-header {
+    text-align: center;
+    /* Centra el texto dentro del header */
+    font-size: 2rem;
+    /* Tamaño de fuente opcional */
+    color: #333;
 }
