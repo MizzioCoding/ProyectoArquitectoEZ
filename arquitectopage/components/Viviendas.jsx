@@ -60,7 +60,9 @@ const Viviendas = () => {
             {Object.keys(imagesByFolder).map((folderName) => (
                 <div key={folderName} className="concurso">
                     <h3>{folderName}</h3>
-                    <Carrousel images={imagesByFolder[folderName]} />
+                    {imagesByFolder[folderName].map((image, index) => (
+                        <img key={index} src={image} alt={`Imagen de ${folderName}`} style={{ paddingBottom: '25px' }} />
+                    ))}
                 </div>
             ))}
         </div>
