@@ -5,7 +5,7 @@ import Projects from '../components/Projects';
 import Gallery from '../components/Gallery';
 import Contacto from '../components/Contacto';
 import Footer from '../components/Footer';
-import Logo from '../public/LOGO Schreiber PNG.png';
+import Logo from '../src/assets/LOGO Schreiber PNG.png';
 import Concursos from '../components/Concursos';
 import Viviendas from '../components/Viviendas';
 import Comercial from '../components/Comercial';
