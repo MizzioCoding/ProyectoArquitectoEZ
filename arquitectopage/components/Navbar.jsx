@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../src/assets/LOGO Schreiber PNG.png";
+import logo from "../public/LOGO Schreiber PNG.png";
 import { SlArrowRight } from "react-icons/sl";
 
 const Navigation = () => {

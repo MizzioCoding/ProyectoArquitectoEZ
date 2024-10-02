@@ -16,7 +16,7 @@ const Concursos = () => {
             const folderPath = src.substring(0, src.lastIndexOf('/')) + '/';
 
             // Construct the correct path for import.meta.glob
-            const context = import.meta.glob('../src/assets/Concursos/**/*.{png,jpe?g,webp,txt}');
+            const context = import.meta.glob('../public/Concursos/**/*.{png,jpe?g,webp,txt}');
 
             const imagesByFolderTemp = {};
 
